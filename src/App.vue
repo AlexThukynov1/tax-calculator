@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="calculateTaxes" class="box-border  p-1 flex flex-col md:justify-start content-center justify-center border rounded gap-2">
+  <form @submit.prevent="calculateTaxes" class="box-border m-5  p-2 flex flex-col md:justify-start content-center justify-center border rounded gap-2">
     <input required v-model="payValue" class="outline border rounded"  placeholder="Введіть суму доходів" type="number">
     <div class="flex gap-3">
       <div class="flex gap-1">
