@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="calculateTaxes" class="m-5 p-5 w-[500px] flex flex-col content-center justify-center border rounded gap-2">
-    <input required v-model="payValue" class="outline border rounded "  placeholder="Введіть суму доходів" type="number">
+  <form @submit.prevent="calculateTaxes" class="box-border  p-1 flex flex-col md:justify-start content-center justify-center border rounded gap-2">
+    <input required v-model="payValue" class="outline border rounded"  placeholder="Введіть суму доходів" type="number">
     <div class="flex gap-3">
       <div class="flex gap-1">
         <input required id="third" name="interestRate" v-model="selectedRate" type="radio" value=0.03>
@@ -27,7 +27,7 @@
       <p>З яких<br>ЄСВ: {{ esv }}<br>ЄП: {{ fixedTax }}<br>Залишок: {{ saldo }}</p>
     </div>
 
-    <button type="submit" class="border rounded w-60 self-center" >Підрахувати податки</button>
+    <button type="submit" class="border rounded self-center" >Підрахувати податки</button>
     <button type="button" @click="clearForm">Очистити</button>
   </form>
 </template>
@@ -41,8 +41,8 @@ const esv = ref(1474)
 const fixedTax = ref(0)
 const saldo = ref(0)
 const infoVisible = ref(false)
-const selectedRate = ref(null)
-const period = ref(null)
+const selectedRate = ref(0.05)
+const period = ref(1)
 
 const calculateTaxes = () => {
   fixedTax.value = (payValue.value * selectedRate.value) * period.value
